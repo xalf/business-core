@@ -42,6 +42,10 @@ main {
 .navbar>div>button {
 	margin: 8px 0;
 }
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
+	background-color: #D83D3D;
+	color: #fff;
+}
 
 /*  Sitebar  */
 
@@ -92,7 +96,9 @@ a:hover, a:focus {
 	margin-top: 15px;
 	border-bottom: 1px solid #EEEEEE;
 }
-
+.news .close{
+	margin-left: 10px;
+}
 .pagination>li>a, .pagination>li>span {
 	color: #861010;
 }
@@ -176,6 +182,29 @@ a:hover, a:focus {
 }
 .table .glyphicon-remove{
 	color: red;
+}
+.album-manage{
+	position: absolute;
+	top: 4px;
+	right: 19px;
+	padding: 5px;
+	background-color: rgba(255, 255, 255 ,0.7);
+	font-size: 20px;
+	color: #000;
+}
+.album-manage .close{
+	margin-left: 5px;
+	font-size: 26px;
+}
+.album-manage a, .album-manage .close{
+	opacity: 0.4;
+	color: #000;
+	cursor: pointer;
+}
+.album-manage a:hover,.album-manage a:focus,.album-manage a:active,
+.album-manage .close:hover, .album-manage .close:active, .album-manage .close:focus{
+	text-decoration: none;
+	opacity: 0.8
 }
 /*  footer   */
 .footer {

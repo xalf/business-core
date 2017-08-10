@@ -48,11 +48,13 @@
 				</div>
 				<div class="col-md-9">
 					<div class="page-header">
+					  <button class="pull-right btn btn-primary" data-toggle="modal" data-target="#newNewsModal"><span class="glyphicon glyphicon-plus"></span> Добавить новость</button>
 					  <h1>Новости</h1>
 					</div>
 					<div class="news">
 						<div class="news__title clearfix">
 							<h4 class="pull-left">Заголовок новости</h4>
+							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal">&times;</button>
 							<span class="pull-right news__date">24.08.2017</span>
 						</div>
 						<div class="news__content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ut aspernatur, distinctio possimus iure voluptatum eum provident porro ipsum quam!</p></div>
@@ -60,6 +62,7 @@
 					<div class="news">
 						<div class="news__title clearfix">
 							<h4 class="pull-left">Заголовок новости</h4>
+							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal">&times;</button>
 							<span class="pull-right news__date">24.08.2017</span>
 						</div>
 						<div class="news__content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ut aspernatur, distinctio possimus iure voluptatum eum provident porro ipsum quam!</p></div>
@@ -67,6 +70,7 @@
 					<div class="news">
 						<div class="news__title clearfix">
 							<h4 class="pull-left">Заголовок новости</h4>
+							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal">&times;</button>
 							<span class="pull-right news__date">24.08.2017</span>
 						</div>
 						<div class="news__content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ut aspernatur, distinctio possimus iure voluptatum eum provident porro ipsum quam!</p></div>
@@ -89,6 +93,55 @@
 			<p class="pull-right">© B-core 2017</p>
 		</div>
 	</footer>
+	<!-- Modal -->
+	<div class="modal fade" id="newNewsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Создать новость</h4>
+		  </div>
+		  <form action="">
+			  <div class="modal-body">
+			  	<div class="form-group">
+					<label>Дата</label>
+					<input type="date" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Заголовок новости</label>
+					<input type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Текст новости</label>
+					<textarea class="form-control"></textarea>
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+				<button type="submit" class="btn btn-primary">Создать</button>
+			  </div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="deleteNewsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Подтверждение</h4>
+		  </div>
+		  <div class="modal-body">
+			Вы точно хотите удалить новость ?
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+			<button type="submit" class="btn btn-primary">Удалить</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 	<script
   src="http://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
