@@ -45,11 +45,16 @@ main {
 
 /*  Sitebar  */
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+.nav-pills.nav-stacked>li.active>a, .nav-pills.nav-stacked>li.active>a:hover, .nav-pills.nav-stacked>li.active>a:focus {
 	background-color: #fff;
 	color: #C12121;
 }
-.nav-pills>li.active>a:before {
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+	background-color: #c12121;
+	border-color: #580000;
+	color: #fff;
+}
+.nav-pills.nav-stacked>li.active>a:before {
 	content: ' ';
 	display: block;
 	position: absolute;
@@ -121,10 +126,57 @@ a:hover, a:focus {
 	font-size: 35px;
 	text-align: center;
 }
-.new-game .form-control{
+.new-game .form-control, .period .form-control{
 	margin-bottom: 5px;
 }
 
+.tab-content>.tab-pane{
+	padding: 10px 0;
+}
+
+.session-panel  .period-nav{
+	font-size: 140%;
+	margin: 5px 15px 0;
+}
+.session-panel  .period-nav a:hover, .session-panel  .period-nav a:focus, .session-panel  .period-nav a:active{
+	text-decoration: none;	
+}
+.session-panel .info{
+	margin: 8px 25px 0;
+}
+.period{
+	padding: 10px 0 15px;
+	border-bottom: 1px solid #DDDDDD;
+	margin-bottom: 15px;
+}
+.excel {
+	background: url('../img/excel.png') no-repeat center center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	width: 28px;
+	height: 28px;
+	display: block
+}
+.print{
+	font-size: 18px;
+    color: #000;
+    padding-top: 3px;
+	margin-left: 10px;
+}
+.print:hover, .print:active, .print:focus{
+	text-decoration: none;
+	color: #000;
+}
+.error{
+	font-weight: 800;
+	color: red;
+}
+.table .glyphicon-ok{
+	color: green;
+}
+.table .glyphicon-remove{
+	color: red;
+}
 /*  footer   */
 .footer {
 	color: #fff;
