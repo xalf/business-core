@@ -132,7 +132,7 @@ a:hover, a:focus {
 	font-size: 35px;
 	text-align: center;
 }
-.new-game .form-control, .period .form-control{
+.form-control{
 	margin-bottom: 5px;
 }
 
@@ -211,3 +211,23 @@ a:hover, a:focus {
 	color: #fff;
 	margin-top: 20px;
 }
+.center-text {
+	text-align: center;
+}
+
+.resolve-item {
+	text-align: right;
+	font-weight: bold;
+	padding-top: 5px;
+}
+h4.resolve-item {
+	padding-top: 0;
+}
+
+.previous {
+	line-height: 33px;
+	font-size: 20px;
+	text-align: center;
+}
+
+
