@@ -51,7 +51,7 @@
 					  <button class="pull-right btn btn-primary" data-toggle="modal" data-target="#newNewsModal"><span class="glyphicon glyphicon-plus"></span> Добавить новость</button>
 					  <h1>Новости</h1>
 					</div>
-					<div class="news">
+					<div class="news js-item">
 						<div class="news__title clearfix">
 							<h4 class="pull-left">Заголовок новости</h4>
 							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal">&times;</button>
@@ -59,18 +59,18 @@
 						</div>
 						<div class="news__content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ut aspernatur, distinctio possimus iure voluptatum eum provident porro ipsum quam!</p></div>
 					</div>
-					<div class="news">
+					<div class="news js-item">
 						<div class="news__title clearfix">
 							<h4 class="pull-left">Заголовок новости</h4>
-							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal">&times;</button>
+							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal" data-item-id="2" data-item-name="2">&times;</button>
 							<span class="pull-right news__date">24.08.2017</span>
 						</div>
 						<div class="news__content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ut aspernatur, distinctio possimus iure voluptatum eum provident porro ipsum quam!</p></div>
 					</div>
-					<div class="news">
+					<div class="news js-item">
 						<div class="news__title clearfix">
 							<h4 class="pull-left">Заголовок новости</h4>
-							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal">&times;</button>
+							<button type="button" class="close pull-right" aria-hidden="true" data-toggle="modal" data-target="#deleteNewsModal" data-item-id="1" data-item-name="1" >&times;</button>
 							<span class="pull-right news__date">24.08.2017</span>
 						</div>
 						<div class="news__content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ut aspernatur, distinctio possimus iure voluptatum eum provident porro ipsum quam!</p></div>
@@ -133,11 +133,14 @@
 			<h4 class="modal-title" id="myModalLabel">Подтверждение</h4>
 		  </div>
 		  <div class="modal-body">
-			Вы точно хотите удалить новость ?
+			Вы точно хотите удалить новость "<span id="item-name-text"></span>"?
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-			<button type="submit" class="btn btn-primary">Удалить</button>
+		  	<form action="" method="post">
+		  		<input type="hidden" id="item-id-input" name="id">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+				<button type="submit" class="btn btn-primary">Удалить</button>
+			</form>
 		  </div>
 		</div>
 	  </div>
@@ -147,5 +150,13 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/delete.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#deleteNewsModal').modal({show: false});
+			deleteItem($('#deleteNewsModal'));
+		});
+	
+	</script>
 </body>
 </html>
