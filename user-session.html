@@ -40,7 +40,7 @@
 	</header>
 	<main>
 		<div class="container">
-			<div class="well clearfix session-panel">
+			<!-- <div class="well clearfix session-panel">
 				<a href="" class="btn btn-default pull-left">Текущий период</a>
 				<div class="pull-left period-nav">
 					<a href="" class="glyphicon glyphicon-chevron-left"></a>
@@ -50,7 +50,7 @@
 				<p class="pull-right info">Период: <span>3</span></p>
 				<p class="pull-right info">Осталось: <span>00:00:00</span></p>
 				
-			</div>
+			</div> -->
 			<div class="clearfix">
 				<ul class="nav nav-tabs pull-left nav-justified">
 					<li class="active"><a href="#periods" data-toggle="tab">Решения</a></li>
@@ -63,111 +63,113 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 			  <div class="tab-pane active" id="periods">
-			  	<form action="">
+			  	<form action="" id="resolve-period">
 			  		<div class="row visible-md visible-lg">
-			  			<div class="col-md-2 col-md-offset-3 center-text"><h4>Текущий период</h4></div>
+			  			<div class="col-md-2 col-md-offset-4 center-text"><h4>Текущий период</h4></div>
 			  			<div class="col-md-2 center-text"><h4>Прошлый период</h4></div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item"><span class="glyphicon glyphicon-info-sign"></span> Цена</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item"><span class="glyphicon glyphicon-info-sign"></span> Цена</div>
 			  			<div class="col-md-2">
 			  				<input class="form-control" type="text">
 			  			</div>
 			  			<div class="col-md-2 previous">45</div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3"><h4 class="resolve-item">НИОКР</h4></div>
+			  			<div class="col-md-3 col-md-offset-1"><h4 class="resolve-item">НИОКР</h4></div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item">Снижение себестоимости</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">Снижение себестоимости</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control niokrSS" type="text" v-model="niokrSS" v-on:blur="sizeSS">
 			  			</div>
 			  			<div class="col-md-2 previous">4</div>
 			  			<div class="col-md-2 resolve-item">Себестоимость</div>
-			  			<div class="col-md-2 previous">213</div>
+			  			<div class="col-md-2 previous ss" v-html="SS">213</div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item">Повышение качества</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">Повышение качества</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control niokrQuality" type="text" v-model="niokrQuality" v-on:blur="sizeQuality">
 			  			</div>
 			  			<div class="col-md-2 previous">2424</div>
 			  			<div class="col-md-2 resolve-item">Качество</div>
-			  			<div class="col-md-2 previous">2134</div>
+			  			<div class="col-md-2 previous quality" v-html="quality">2134</div>
 			  		</div>
 			  		<div class="row">
+			  			<div class="col-md-1"><h4 class="resolve-item">Объёмы рынков</h4></div>
 						<div class="col-md-3"><h4 class="resolve-item">Заводы</h4></div>
 			  		</div>
-			  		<div class="row">
+			  		<div class="row" v-bind:class="{ 'has-error': factories.isError }">
+			  			<div class="col-md-1 previous">12</div>
 			  			<div class="col-md-3 resolve-item">Северная Америка</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control" type="text" v-on:blur="changeFactory(factories.NA)" v-model="factories.NA.val">
 			  			</div>
-			  			<div class="col-md-2 previous">23</div>
+			  			<div class="col-md-2 previous lastNA">0</div>
 			  			<div class="col-md-2 resolve-item">Изменение размеров</div>
-			  			<div class="col-md-2 previous">234</div>
+			  			<div class="col-md-2 previous" v-html="factories.NA.change">0</div>
 			  		</div>
-			  		<div class="row">
+			  		<div class="row" v-bind:class="{ 'has-error': factories.isError }">
+			  			<div class="col-md-1 previous">12</div>
 			  			<div class="col-md-3 resolve-item">Европа</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control" type="text" v-on:blur="changeFactory(factories.Europe)" v-model="factories.Europe.val">
 			  			</div>
-			  			<div class="col-md-2 previous">43</div>
+			  			<div class="col-md-2 previous lastEurope">0</div>
 			  			<div class="col-md-2 resolve-item">Изменение размеров</div>
-			  			<div class="col-md-2 previous">655</div>
+			  			<div class="col-md-2 previous" v-html="factories.Europe.change">0</div>
 			  		</div>
-			  		<div class="row">
+			  		<div class="row" v-bind:class="{ 'has-error': factories.isError }">
+			  			<div class="col-md-1 previous">12</div>
 			  			<div class="col-md-3 resolve-item">Азия</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control" type="text" v-on:blur="changeFactory(factories.Asia)" v-model="factories.Asia.val">
 			  			</div>
-			  			<div class="col-md-2 previous">234</div>
+			  			<div class="col-md-2 previous lastAsia">0</div>
 			  			<div class="col-md-2 resolve-item">Изменение размеров</div>
-			  			<div class="col-md-2 previous">42</div>
+			  			<div class="col-md-2 previous" v-html="factories.Asia.change">0</div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3"><h4 class="resolve-item">Продвижение</h4></div>
+			  			<div class="col-md-3 col-md-offset-1"><h4 class="resolve-item">Продвижение</h4></div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item">Северная Америка</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">Северная Америка</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control promotionNA" type="text" v-model="promotion.NA" v-on:blur="sizeBudget">
 			  			</div>
 			  			<div class="col-md-2 previous">123</div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item">Европа</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">Европа</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control promotionEurope" type="text" v-model="promotion.Europe" v-on:blur="sizeBudget">
 			  			</div>
 			  			<div class="col-md-2 previous">0</div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item">Азия</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">Азия</div>
 			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
+			  				<input class="form-control promotionAsia" type="text" v-model="promotion.Asia" v-on:blur="sizeBudget">
 			  			</div>
 			  			<div class="col-md-2 previous">0</div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 resolve-item">Израсходованный бюджет</div>
-			  			<div class="col-md-2">
-			  				<input class="form-control" type="text">
-			  			</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">Израсходованный бюджет</div>
+			  			<div class="col-md-2 previous" id="spent-budget-val" v-html="spentBudgetVal"></div>
 			  			<div class="col-md-2 previous">333</div>
 			  			<div class="col-md-2 resolve-item">Доступный бюджет</div>
-			  			<div class="col-md-2 previous">333</div>
+			  			<div class="col-md-2 previous allBudget">333</div>
 			  		</div>
-			  		<div class="alert alert-warning">
+			  		<div class="alert alert-warning" v-if="spentBudgetVal < allBudget">
 						<h4>ПРЕДУПРЕЖДЕНИЕ!</h4> 
 						<p>Решение сохранено. Вы израсходовали не весь доступный бюджет. Вы могли бы увеличить свои расходы</p>
 			  		</div>
-					<div class="alert alert-danger">
+					<div class="alert alert-danger" v-if="spentBudgetVal > allBudget">
 						<h4>Предупреждение!</h4>
 						<p>Решение не сохранено. Ваши затраты превышают допустимый бюджет.</p>
 					</div>
-			  		<button class="btn btn-primary center-block">Принять решение</button>
+			  		<button class="btn btn-primary center-block" type="submit" v-bind:disabled="factories.isError || spentBudgetVal > allBudget">Принять решение</button>
 			  	</form>
 			  </div>
 			  <div class="tab-pane" id="solutions">
@@ -610,5 +612,7 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="./js/vue.min.js"></script>
+	<script src="./js/user-session.js"></script>
 </body>
 </html>

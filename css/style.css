@@ -15,6 +15,11 @@ main {
 	background-color: #c12121;
 	border-color: #580000;
 }
+.btn-primary:active:hover, .btn-primary.active:hover, 
+.open>.dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, 
+.btn-primary.active:focus, .open>.dropdown-toggle.btn-primary:focus, 
+.btn-primary:active.focus, .btn-primary.active.focus, 
+.open>.dropdown-toggle.btn-primary.focus,
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus{
 	background-color: #981111;
     border-color: #580000;
