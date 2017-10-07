@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/fonts/fontawesome-webfont.svg">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
 </head>
 <body>
 	<header class="header">
@@ -69,7 +70,14 @@
 			  			<div class="col-md-2 center-text"><h4>Прошлый период</h4></div>
 			  		</div>
 			  		<div class="row">
-			  			<div class="col-md-3 col-md-offset-1 resolve-item"><span class="glyphicon glyphicon-info-sign"></span> Цена</div>
+			  			<div class="col-md-3 col-md-offset-1 resolve-item">
+			  				<span class="glyphicon glyphicon-info-sign help-btn"></span>
+			  				<div class="hide help-pane">
+			  					<p>Цена влияет на привлекательность продукции Вашей компании для потребителя.</p>
+			  					<p>Устанавливается единая цена для всех рынков. Вы можете установить цену в пределах от a до b [Параметры a и b были определены Администратором при создании игры]. Цена устанавливается в тысячах рублей. Допустим ввод только целых значений. <a href="">Подробнее…</a></p>
+			  				</div> 
+			  				Цена
+			  			</div>
 			  			<div class="col-md-2">
 			  				<input class="form-control" type="text">
 			  			</div>
@@ -611,8 +619,10 @@
   src="http://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
 	<script src="./js/vue.min.js"></script>
 	<script src="./js/user-session.js"></script>
+
 </body>
 </html>

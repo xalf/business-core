@@ -105,4 +105,18 @@ $(document).ready(function(){
 	  	}
 	  }
 	});
+
+	//подсказки
+	var help = $('.help-btn');
+	help.click(function(e){
+		var target = $(e.currentTarget);
+		var content = target.next('.help-pane').html();
+		target.webuiPopover({
+			placement: 'bottom-right',
+			width: 300,
+			animation: 'pop',
+			content: content,
+			closeable: true
+		});
+	});
 });
